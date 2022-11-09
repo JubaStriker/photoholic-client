@@ -27,16 +27,16 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link to='/'>
-                    <span>P</span>
-                    <span>H</span>
-                    <span>O</span>
-                    <span>T</span>
-                    <span>O</span>
-                    <span>H</span>
-                    <span>O</span>
-                    <span>L</span>
-                    <span>I</span>
-                    <span>C</span>
+                    <span className='text-2xl font-semibold text-green-700'>P</span>
+                    <span className='text-2xl font-semibold text-amber-400'>H</span>
+                    <span className='text-2xl font-semibold text-amber-400'>O</span>
+                    <span className='text-2xl font-semibold text-amber-400'>T</span>
+                    <span className='text-2xl font-semibold text-amber-400'>O</span>
+                    <span className='text-2xl font-semibold text-amber-400'>H</span>
+                    <span className='text-2xl font-semibold text-amber-400'>O</span>
+                    <span className='text-2xl font-semibold text-amber-400'>L</span>
+                    <span className='text-2xl font-semibold text-amber-400'>I</span>
+                    <span className='text-2xl font-semibold text-green-700'>C</span>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">

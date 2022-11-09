@@ -8,6 +8,7 @@ import ServiceDetails from "../Pages/ServiceDetails";
 import Services from "../Pages/Services";
 import SignUp from "../Pages/SignUp";
 
+
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -44,7 +45,7 @@ export const router = createBrowserRouter([
             element: <Login />
         },
         {
-            path: 'signup',
+            path: '/signup',
             element: <SignUp />
         }
 

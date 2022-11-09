@@ -28,7 +28,7 @@ const Services = ({ services }) => {
                                 <p>{service.details.slice(0, 100)}...</p>
                                 <div className="card-actions justify-center mt-4">
                                     <button className="btn text-white border-0 bg-orange-400 hover:bg-orange-500">
-                                        Learn now!
+                                        Learn more!
                                     </button>
                                 </div>
                             </div>

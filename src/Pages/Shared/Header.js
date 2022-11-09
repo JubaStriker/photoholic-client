@@ -14,19 +14,26 @@ const Header = () => {
                             isActive ? "text-green-800 flex" : "text-amber-400"
                         }> <p className='font-bold text-lg'>Home</p>
                         </NavLink></li>
+                        <li>
+                            <NavLink to='/services' className={({ isActive }) =>
+                                isActive ? "text-green-800 flex" : "text-amber-400"
+                            }> <p className='font-bold text-lg'>Services</p>
+                            </NavLink>
+                        </li>
                         <li tabIndex={0}>
                             <NavLink to='/blog' className={({ isActive }) =>
                                 isActive ? "text-green-800 flex" : "text-amber-400"
                             }> <p className='font-bold text-lg'>Blog</p>
                             </NavLink>
                         </li>
+
                         <li><NavLink to='/about' className={({ isActive }) =>
                             isActive ? "text-green-800 flex" : "text-amber-400"
                         }> <p className='font-bold text-lg'>About us</p>
                         </NavLink></li>
                     </ul>
                 </div>
-                <Link to='/'>
+                <Link to='/home'>
                     <span className='text-2xl font-semibold text-green-700'>P</span>
                     <span className='text-2xl font-semibold text-amber-400'>H</span>
                     <span className='text-2xl font-semibold text-amber-400'>O</span>
@@ -45,6 +52,13 @@ const Header = () => {
                         <NavLink to='/home' className={({ isActive }) =>
                             isActive ? "text-green-600 flex" : "text-amber-400"
                         }> <p className='font-bold text-lg '>Home</p>
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to='/services' className={({ isActive }) =>
+                            isActive ? "text-green-600 flex" : "text-amber-400"
+                        }> <p className='font-bold text-lg'>Services</p>
                         </NavLink>
                     </li>
                     <li>

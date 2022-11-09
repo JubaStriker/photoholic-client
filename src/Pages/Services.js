@@ -7,7 +7,7 @@ const Services = () => {
     const services = useLoaderData();
 
     return (
-        <div className='container'>
+        <div className=''>
             <h1 className='text-7xl text-center my-10 font-medium'>Our services</h1>
             <div className='flex flex-col justify-center items-center'>
                 {services?.map(service =>
@@ -19,7 +19,7 @@ const Services = () => {
                                 <p>Price: {service.price} ৳</p>
                                 <p>Rating: {service.rating} </p>
                                 <div className="card-actions justify-center mt-4">
-                                    <Link to='/details'><button className="btn text-white border-0 bg-orange-400 hover:bg-orange-500">
+                                    <Link to={`/details/${service._id}`}><button className="btn text-white border-0 bg-orange-400 hover:bg-orange-500">
                                         Details
                                     </button></Link>
                                 </div>

@@ -32,7 +32,7 @@ const Extra = () => {
                             Happiness<br />
                             And Enjoy <br />
                             Life</h1>
-                        <p className="py-6 text-gray-600"> Right now Dream Weaver has the highest number of fan following among Bangladeshi wedding photography Facebook pages. Among many other achievements we recognize this as the most important one as it directly indicates how many people are relating with us personally. Their likes and comments inspire us to do better every day.
+                        <p className="py-6 text-gray-600"> Right now PHOTOHOLIC has the highest number of fan following among Bangladeshi wedding photography Facebook pages. Among many other achievements we recognize this as the most important one as it directly indicates how many people are relating with us personally. Their likes and comments inspire us to do better every day.
                         </p>
 
                     </div>

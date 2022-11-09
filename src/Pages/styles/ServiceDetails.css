@@ -1,0 +1,9 @@
+.card-img {
+    width: 700px;
+}
+
+@media (max-width: 768px) {
+    .card-img {
+        width: 350px
+    }
+}

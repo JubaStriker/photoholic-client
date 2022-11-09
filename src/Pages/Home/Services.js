@@ -20,7 +20,7 @@ const Services = ({ services }) => {
             </h1>
 
             <div className='mt-20 flex flex-col lg:flex-row gap-9 justify-center items-center container'>
-                {services.map(service =>
+                {services?.map(service =>
                     <div key={service._id}>
                         <Link to={`/details/${service._id}`}>
                             <div className="card w-96 hover:shadow-xl hover:-translate-y-2">

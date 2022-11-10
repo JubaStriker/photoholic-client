@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContextProvider';
 import './styles/ServiceDetails.css'
 
@@ -7,6 +7,18 @@ const ServiceDetails = () => {
 
     const { user } = useContext(AuthContext);
     const { picture, price, details, _id, title } = useLoaderData();
+    const [reviews, setReviews] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
+
+    console.log(reviews);
+
+
+
 
     const handleReview = event => {
         event.preventDefault()
@@ -71,6 +83,26 @@ const ServiceDetails = () => {
                 <p className="btn text-white border-0 bg-orange-400 hover:bg-orange-500">Checkout</p>
             </div>
 
+            <h1 className='text-center text-4xl my-16'>Customer Reviews</h1>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto gap-5 my-10'>
+                {reviews?.map(review => <div key={review.message}>
+
+                    <div className="w-full p-4 shadow-md lg:max-w-lg">
+                        <div className="space-y-2">
+                            <h3 className="text-2xl font-semibold">
+                                Review from <span className="text-orange-500"> {review.customer}</span>
+                            </h3>
+                            <p className="text-gray-600">
+                                Service name : <span className="text-green-600"> {review.serviceName}</span>
+                            </p>
+                            <p className="text-gray-600">
+                                "{review.message}"
+                            </p>
+                        </div>
+                    </div>
+                </div>)}
+            </div>
 
             {user ?
                 <div>
@@ -90,7 +122,7 @@ const ServiceDetails = () => {
                 </div>
                 :
                 <h1 className='text-3xl text-center my-10'>
-                    Login to give reviews
+                    <Link to='/login'><span className='text-green-500'>Login</span></Link> to give reviews
                 </h1>}
 
 

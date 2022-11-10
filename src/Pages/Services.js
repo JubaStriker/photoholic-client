@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../Hooks/useTitle';
 import './styles/ServiceCard.css'
 
 const Services = () => {
-
+    useTitle('Services')
     const services = useLoaderData();
 
     return (

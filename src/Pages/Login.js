@@ -3,6 +3,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContextProvider';
+import useTitle from '../Hooks/useTitle';
 
 const Login = () => {
 
@@ -13,6 +14,7 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
+    useTitle('Login')
 
     const from = location.state?.from?.pathname || '/';
 

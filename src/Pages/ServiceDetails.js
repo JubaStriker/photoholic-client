@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContextProvider';
+import useTitle from '../Hooks/useTitle';
 import './styles/ServiceDetails.css'
 
 const ServiceDetails = () => {
-
+    useTitle('Service Details');
     const { user } = useContext(AuthContext);
     const { picture, price, details, _id, title } = useLoaderData();
     const [reviews, setReviews] = useState([])
@@ -74,7 +75,7 @@ const ServiceDetails = () => {
                 <img className='rounded-lg card-img' src={picture} alt="" />
             </div>
 
-            <div className='max-w-xl text-center mx-auto my-8 text-xl px-1'>
+            <div className='max-w-xl lg:max-w-6xl text-center mx-auto my-8 text-xl px-1'>
                 {details}
             </div>
 
@@ -106,7 +107,8 @@ const ServiceDetails = () => {
 
             {user ?
                 <div>
-                    <form onSubmit={handleReview} className='max-w-xl mx-auto my-10'>
+                    <h1 className='text-3xl text-center my-11'>Send us your review</h1>
+                    <form onSubmit={handleReview} className='max-w-xl mx-auto my-10 px-2'>
                         <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 max-w-xl mx-auto my-10'>
                             <input type="text" name='firstName' placeholder="First Name" className="input input-bordered input-warning w-full max-w-xs" />
                             <input type="text" name='lastName' placeholder="Last Name" className="input input-bordered input-warning w-full max-w-xs" />

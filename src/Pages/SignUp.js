@@ -4,11 +4,13 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContextProvider';
 import app from '../Firebase/Firebase.config';
+import useTitle from '../Hooks/useTitle';
 
 const SignUp = () => {
     const auth = getAuth(app);
 
     const { createUser, user } = useContext(AuthContext)
+    useTitle('SignUp')
 
     const handleOnSubmit = (event) => {
         event.preventDefault()

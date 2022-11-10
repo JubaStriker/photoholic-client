@@ -37,6 +37,12 @@ const Header = () => {
                             }> <p className='font-bold text-lg'>Services</p>
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink to='/myReviews' className={({ isActive }) =>
+                                isActive ? "text-green-800 flex" : "text-amber-400"
+                            }> <p className='font-bold text-lg'>My Reviews</p>
+                            </NavLink>
+                        </li>
                         <li tabIndex={0}>
                             <NavLink to='/blog' className={({ isActive }) =>
                                 isActive ? "text-green-800 flex" : "text-amber-400"
@@ -76,6 +82,12 @@ const Header = () => {
                         <NavLink to='/services' className={({ isActive }) =>
                             isActive ? "text-green-600 flex" : "text-amber-400"
                         }> <p className='font-bold text-lg'>Services</p>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/myReviews' className={({ isActive }) =>
+                            isActive ? "text-green-600 flex" : "text-amber-400"
+                        }> <p className='font-bold text-lg'>My Reviews</p>
                         </NavLink>
                     </li>
                     <li>

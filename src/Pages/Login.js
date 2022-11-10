@@ -1,7 +1,7 @@
 import { Player } from '@lottiefiles/react-lottie-player';
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContextProvider';
 
 const Login = () => {
@@ -10,7 +10,12 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider();
 
     const [error, setError] = useState('');
+
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
 
     const handleOnSubmit = (event) => {
         event.preventDefault()
@@ -25,6 +30,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 setError('');
+                navigate(from, { replace: true });
 
             })
             .catch(error => {

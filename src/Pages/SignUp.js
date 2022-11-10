@@ -8,7 +8,7 @@ import app from '../Firebase/Firebase.config';
 const SignUp = () => {
     const auth = getAuth(app);
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser, user } = useContext(AuthContext)
 
     const handleOnSubmit = (event) => {
         event.preventDefault()
@@ -20,8 +20,7 @@ const SignUp = () => {
 
         createUser(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+
                 updateProfile(auth.currentUser, {
                     displayName: name,
                     photoURL: photoURL
@@ -37,6 +36,8 @@ const SignUp = () => {
             })
         console.log(email, password);
         form.reset();
+
+        console.log(user);
 
     }
     return (
@@ -58,7 +59,7 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name='name' placeholder="name" className="input input-bordered" />
+                            <input type="text" name='name' placeholder="name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -70,13 +71,13 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                            <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                             <label className="label">
                                 <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>

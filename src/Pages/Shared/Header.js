@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthContextProvider';
+import { getAuth, signOut } from "firebase/auth";
+
 
 const Header = () => {
+
+    const auth = getAuth();
+    const { user } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
+    }
+
+    console.log(user);
+
     return (
         <div className="navbar bg-base-100 shadow-lg">
             <div className="navbar-start">
@@ -75,7 +92,9 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <button onCLick={handleLogOut} className="btn btn-outline text-amber-400 hover:bg-orange-400">Log Out</button>
                 <Link to='/login'><button className="btn btn-outline text-amber-400 hover:bg-orange-400">Log In</button></Link>
+                {user ? <p>{user.displayName}</p> : ''}
             </div>
         </div>
     );

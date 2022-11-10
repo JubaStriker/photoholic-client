@@ -6,7 +6,7 @@ import './styles/ServiceDetails.css'
 const ServiceDetails = () => {
 
     const { user } = useContext(AuthContext);
-    const details = useLoaderData();
+    const { picture, price, details, _id, title } = useLoaderData();
 
     const handleReview = event => {
         event.preventDefault()
@@ -14,8 +14,36 @@ const ServiceDetails = () => {
         const name = `${form.firstName.value} ${form.lastName.value}`;
         const email = form.email.value;
         const contactNo = form.contactNo.value;
+        const message = form.review.value;
         console.log(name, email, contactNo);
-        form.reset()
+
+        const review = {
+            serviceId: _id,
+            serviceName: title,
+            price,
+            customer: name,
+            email,
+            contactNo,
+            message
+        }
+
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    alert('Review placed successfully');
+                    form.reset()
+                }
+            })
+            .catch(error => console.log(error))
+
     };
 
 
@@ -27,19 +55,19 @@ const ServiceDetails = () => {
             </div>
 
             <div>
-                <h1 className='text-4xl text-center'>Check out our <span className='text-orange-400'>{details.title}</span> service</h1>
+                <h1 className='text-4xl text-center'>Check out our <span className='text-orange-400'>{title}</span> service</h1>
             </div>
 
             <div className='my-16 flex justify-center px-4'>
-                <img className='rounded-lg card-img' src={details.picture} alt="" />
+                <img className='rounded-lg card-img' src={picture} alt="" />
             </div>
 
             <div className='max-w-xl text-center mx-auto my-8 text-xl px-1'>
-                {details.details}
+                {details}
             </div>
 
             <div className='max-w-xl text-xl my-5 flex justify-around mx-auto'>
-                <p> Price: <span className='text-green-600 font-medium font-sans'>{details.price}  ৳</span></p>
+                <p> Price: <span className='text-green-600 font-medium font-sans'>{price}  ৳</span></p>
                 <p className="btn text-white border-0 bg-orange-400 hover:bg-orange-500">Checkout</p>
             </div>
 

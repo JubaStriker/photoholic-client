@@ -92,9 +92,9 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button onCLick={handleLogOut} className="btn btn-outline text-amber-400 hover:bg-orange-400">Log Out</button>
-                <Link to='/login'><button className="btn btn-outline text-amber-400 hover:bg-orange-400">Log In</button></Link>
-                {user ? <p>{user.displayName}</p> : ''}
+
+
+                {user ? <><button onClick={handleLogOut} className="btn btn-outline text-amber-400 hover:bg-orange-400 mr-2">Log Out</button> <p>{user.displayName}</p></> : <Link to='/login'><button className="btn btn-outline text-amber-400 hover:bg-orange-400">Log In</button></Link>}
             </div>
         </div>
     );

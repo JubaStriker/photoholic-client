@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthContextProvider';
 import './styles/ServiceDetails.css'
 
 const ServiceDetails = () => {
 
+    const { user } = useContext(AuthContext);
     const details = useLoaderData();
-    console.log(details);
+
+    const handleReview = event => {
+        event.preventDefault()
+        const form = event.target;
+        const name = `${form.firstName.value} ${form.lastName.value}`;
+        const email = form.email.value;
+        const contactNo = form.contactNo.value;
+        console.log(name, email, contactNo);
+        form.reset()
+    };
+
 
     return (
         <>
@@ -30,6 +42,30 @@ const ServiceDetails = () => {
                 <p> Price: <span className='text-green-600 font-medium font-sans'>{details.price}  ৳</span></p>
                 <p className="btn text-white border-0 bg-orange-400 hover:bg-orange-500">Checkout</p>
             </div>
+
+
+            {user ?
+                <div>
+                    <form onSubmit={handleReview} className='max-w-xl mx-auto my-10'>
+                        <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 max-w-xl mx-auto my-10'>
+                            <input type="text" name='firstName' placeholder="First Name" className="input input-bordered input-warning w-full max-w-xs" />
+                            <input type="text" name='lastName' placeholder="Last Name" className="input input-bordered input-warning w-full max-w-xs" />
+                            <input type="text" name='contactNo' placeholder="Contact no." className="input input-bordered input-warning w-full max-w-xs" />
+                            <input type="email" name='email' placeholder="email" defaultValue={user?.email} readOnly className="input input-bordered input-warning w-full max-w-xs" />
+
+                        </div>
+
+                        <textarea name='review' className="textarea textarea-warning w-full" placeholder="Type your review"></textarea>
+
+                        <button type='submit' className='btn my-2 text-white border-0 bg-orange-400 hover:bg-orange-500'>Submit</button>
+                    </form>
+                </div>
+                :
+                <h1 className='text-3xl text-center my-10'>
+                    Login to give reviews
+                </h1>}
+
+
         </>
     );
 };

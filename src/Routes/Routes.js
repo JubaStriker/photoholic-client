@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
         },
         {
             path: '/home',
-            loader: () => fetch('http://localhost:5000/services'),
+            loader: () => fetch('https://photoholic.vercel.app/services'),
             element: <Home />
         },
         {
@@ -34,12 +34,12 @@ export const router = createBrowserRouter([
         },
         {
             path: '/services',
-            loader: () => fetch('http://localhost:5000/allServices'),
+            loader: () => fetch('https://photoholic.vercel.app/allServices'),
             element: <Services />
         },
         {
             path: '/details/:id',
-            loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+            loader: ({ params }) => fetch(`https://photoholic.vercel.app/services/${params.id}`),
             element: <ServiceDetails />
         },
         {

@@ -17,7 +17,6 @@ const Header = () => {
         });
     }
 
-    console.log(user);
 
     return (
         <div className="navbar bg-base-100 shadow-lg">

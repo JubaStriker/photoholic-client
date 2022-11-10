@@ -12,7 +12,7 @@ const MyReviews = () => {
             .then(res => res.json())
             .then(data => setUserReview(data))
     }, [user?.email])
-    console.log(userReview);
+
 
     return (
         <div>

@@ -4,7 +4,6 @@ import Typewriter from 'typewriter-effect';
 
 const Services = ({ services }) => {
 
-    console.log(services);
     return (
         <div className='mt-32'>
             <h1 className='text-3xl md:text-6xl text-center font-semibold'>Our Services</h1>

@@ -28,7 +28,7 @@ const ServiceDetails = () => {
         const email = form.email.value;
         const contactNo = form.contactNo.value;
         const message = form.review.value;
-        console.log(name, email, contactNo);
+
 
         const review = {
             serviceId: _id,

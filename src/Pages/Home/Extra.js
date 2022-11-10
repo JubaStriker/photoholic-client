@@ -18,7 +18,7 @@ const Extra = () => {
                             Freeze Time <br />
                             And Capture <br />
                             Moments</h1>
-                        <p className="py-6 text-gray-600">PHOTOHOLIC was created by a group of young engineering students Engineering University, lead by Md Jubair Hossain who chose their passion as their profession and this incident of their life have been pushing them constantly to expand their potentiality. </p>
+                        <p className="py-6 text-gray-600">PHOTOHOLIC was created by a group of young engineering students of Engineering University, lead by Md Jubair Hossain who chose their passion as their profession and this incident of their life have been pushing them constantly to expand their potentiality. </p>
 
                     </div>
                 </div>
